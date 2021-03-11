@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <title>Turtle Game</title>
+    <link href = "game.css" rel = "stylesheet" type = "text/css">
+  </head>
+  <body class="c-body">
+    <div class="menu u--visible" id="menuBox">
+      <h1>Turtle Game</h1>
+      <canvas></canvas>
+      <ul>
+        <li class="button button--start" id="startLnk" data-show="startBox" data-hide="menuBox">Start</li>
+        <li class="button button--scores" id="scoresLnk" data-show="scoresBox" data-hide="menuBox">Scores</li>
+        <li class="button button--about" id="aboutLnk" data-show="aboutBox" data-hide="menuBox">About</li>
+      </ul>
+    </div>
+
+    <div class="start u--visible u--blur-fadeout" id="startBox">
+      <h1 class="title title--start">
+        Last as long as you can!<span class="close heavy" id="exitLnk" data-show="menuBox" data-hide="startBox">+</span>
+      </h1>
+      <div class="start__board">
+        <div class="start__counter u--nocontent"></div>
+        <div id="playboard" class="start__playboard u--nocontent u--fadeout"></div>
+        <div class="start__counter u--nocontent"></div>
+        <h2 id="readyShevron" class="start__ready">Ready?</h2>
+      </div>
+    </div>
+
+    <div class="scores u--visible u--blur-fadeout" id="scoresBox" data-show="menuBox" data-hide="scoresBox">
+      <h1 class="title">Your scores</h1>
+      <div class="popup button--teal button--scores">
+        <ol id="scoresList"></ol>
+        <p>(click here to close)</p>
+      </div>
+    </div>
+
+    <div class="about u--visible u--blur-fadeout" id="aboutBox" data-show="menuBox" data-hide="aboutBox">
+      <h1 class="title">About this Game</h1>
+      <div class="popup button--teal button--about">
+        <p>Turtle Game</p>
+        <p class="about__text">This game is an endless runner with obstacles, the aim of the game is to last as long and get as high a score as possible.</p>
+        <p class="about__text"><br />
+          <div class="chip chip--round chip--stripes chip--clockwise u--selected" style="left:20px"></div>
+          <div class="chip chip--square chip--tablecloth chip--c-clockwise" style="left:100px"></div>
+          <div class="chip chip--square chip--shippo chip--clockwise" style="left:180px"></div>
+          <div class="chip chip--round chip--stripes chip--clockwise u--selected" style="left:250px"></div>
+          <div class="chip chip--round chip--stripes chip--c-clockwise" style="left:310px"></div>
+        <br /></p>
+        <p>(click here to close)</p>
+      </div>
+    </div>
+    <h3>Use the keyboard to manage your character.</h3>
+    <p>
+    <br /> <b>ARROWS:</b>
+    <br /> UP to jump
+    <br /> LEFT & RIGHT to move forward or backward
+    </p>
+
+    <script src = "game.js" type = "text/javascript"></script>
+
+  </body>
+
+</html>
