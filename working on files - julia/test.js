@@ -1,5 +1,5 @@
-const context = document.querySelector("canvas").getContext("2d");
-const score = document.getElementById("showscore");
+onst context = document.querySelector("canvas").getContext("2d");
+const score = document.getElementById("showscore","highscore");
 context.canvas.height = 400;
 context.canvas.width = 1220;
 
@@ -7,6 +7,7 @@ context.canvas.width = 1220;
 let frameCount = 1;
 // Set the number of obstacles to match the current "level"
 let obCount = frameCount;
+
 // Create a collection to hold the generated x coordinates
 const obXCoors = [];
 
@@ -60,9 +61,7 @@ const controller = {
     
   }
 
-
 };
-
 
 const loop = function () {
 
@@ -106,14 +105,21 @@ const loop = function () {
     square.x = 1220;
 
   } else if (square.x > 1220) {// if square goes past right boundary
-    
-      square.x = -20;
-    nextFrame() ;
 
+       square.x = -20;
+    nextFrame() ;
+// Create the score
     document.getElementById("showscore").innerHTML = "score: " + frameCount;
     function increasescore(){
-      frameCount += 1;
+    frameCount += 1;
     }
+
+// Create the highscore
+    document.getElementById("highscore").innerHTML = "highscore: " + highscore;
+    frameCount > highscore;
+    highscore = frameCount;
+    highscore += 1;
+
   }
 
   // Creates the backdrop for each frame
@@ -122,7 +128,7 @@ const loop = function () {
 
 
   // Creates and fills the cube for each frame
-  context.fillStyle = "#ff0000"; // hex for cube color
+  context.fillStyle = "#8DAA9D"; // hex for cube color
   context.beginPath();
   context.rect(square.x, square.y, square.width, square.height);
   context.fill();
@@ -139,6 +145,7 @@ const loop = function () {
     context.moveTo(obXCoor, 385); // x = random, y = coor. on "ground"
     context.lineTo(obXCoor + 20, 385); // x = ^random + 20, y = coor. on "ground"
     context.lineTo(obXCoor + 10, 510 - height); // x = ^random + 10, y = peak of triangle
+
     context.closePath();
     context.fill();
   })
